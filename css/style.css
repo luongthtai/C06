@@ -1,0 +1,507 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --theme: #FE043C;
+}
+
+header .navbar .logo {
+  color: var(--theme);
+}
+
+main .services__bottom--items div h5, main .booking__main--times p, main .booking__main--times span, main .booking__main form input::placeholder, main .booking__main h3, header .main-header form input::placeholder, header .main-header h2, header .main-header h1, header .navbar .hidden .user > a, header .navbar .hidden .menu__items, footer .footer-main h4, main .download__top h3, main .explore__top h3, main .services__top h3, main .food-items__top h3 {
+  color: #2E266F;
+}
+
+main .download, main .explore, main .services__bottom, main .services__top, main .food-items__top, header .main-header, header .navbar {
+  padding: 0 8%;
+}
+
+main .download, main .explore, main .services, main .booking, main .food-items {
+  margin: 5rem 0;
+}
+
+main .download__top h3, main .explore__top h3, main .services__top h3, main .food-items__top h3 {
+  padding-left: 2rem;
+  margin: 0;
+  font-size: 4rem;
+  font-weight: 500;
+}
+
+footer .footer-main h4 {
+  font-size: 3rem;
+  font-weight: 400;
+}
+
+main .explore__bottom--items .intr div h5, main .food-items__bottom--lists > div h5 {
+  font-size: 2rem;
+  font-weight: 500;
+}
+
+footer .footer-main span, footer .footer-main p, main .download__top p, main .explore__bottom--items .intr div p, main .explore__top p, main .services__bottom--items div p, main .services__top p, main .food-items__top p, main .food-items__bottom--lists > div p {
+  font-size: 14px;
+  color: #707070;
+  line-height: 2rem;
+}
+
+main .food-items__bottom--lists > div p {
+  color: #fff;
+}
+
+main .services__top h3, main .food-items__top h3 {
+  border-left: 1.5rem solid var(--theme);
+}
+
+main .booking__main form button, main .food-items__bottom--see-more i, main .food-items__bottom--lists > div .mark, main .food-items__bottom--lists > div, main .food-items__bottom--lists, header .location, header .main-header form button, header .navbar .hidden .user span i, header .navbar .hidden .user span, main .explore__bottom--items .intr div h5, main .food-items__bottom--lists > div h5 {
+  color: #fff;
+}
+
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  font-size: 12px;
+  background-color: #FFF5EC;
+}
+
+header {
+  width: 100%;
+  height: 120vh;
+  background-image: linear-gradient(to right, #FFF5EC 70%, var(--theme) 30%);
+}
+header a {
+  text-decoration: none;
+}
+header .navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+header .navbar .logo {
+  width: 20%;
+}
+header .navbar .logo h1 {
+  font-size: 4rem;
+}
+header .navbar .hidden {
+  width: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+header .navbar .hidden .menu__items {
+  padding: 2.5rem;
+}
+header .navbar .hidden .user {
+  display: flex;
+  align-items: center;
+}
+header .navbar .hidden .user > a i {
+  font-size: 2.5rem;
+  padding: 0.8rem;
+  background-color: #fff;
+  border-radius: 50%;
+}
+header .navbar .hidden .user span {
+  padding-left: 0.5rem;
+}
+header .navbar .hidden .user span i {
+  padding-left: 0.5rem;
+}
+header .main-header {
+  width: 60%;
+  padding-bottom: 8rem;
+}
+header .main-header h1 {
+  height: 8rem;
+  display: inline-block;
+  margin: 0;
+  font-size: 12rem;
+  opacity: 5%;
+}
+header .main-header h2 {
+  font-size: 4rem;
+  margin: 0 0 1rem;
+}
+header .main-header form {
+  position: relative;
+  width: 70%;
+}
+header .main-header form input {
+  width: 100%;
+  border: none;
+  background-color: #fff;
+  padding: 2rem 1.5rem;
+}
+header .main-header form input::placeholder {
+  font-size: 18px;
+}
+header .main-header form button {
+  font-size: 2.5rem;
+  background-color: var(--theme);
+  border: none;
+  border-radius: 60px 0px 0px 0px;
+  position: absolute;
+  padding: 0.6rem 5rem;
+  top: 50%;
+  right: 1%;
+  transform: translateY(-50%);
+}
+header .location {
+  font-size: 2.5rem;
+  display: inline-block;
+  background-color: var(--theme);
+  border-radius: 0px 100px 100px 0px;
+  padding: 0.5rem 2.5rem;
+}
+header .image-header {
+  display: none;
+  position: absolute;
+  top: 0;
+}
+
+main .food-items__top {
+  padding-bottom: 5rem;
+  display: flex;
+  align-items: center;
+}
+main .food-items__top h3 {
+  width: 60%;
+}
+main .food-items__top p {
+  width: 40%;
+}
+main .food-items__bottom {
+  display: grid;
+  grid-template: auto/1fr 1fr 0.8fr;
+  align-items: center;
+  justify-items: center;
+  gap: 2rem;
+}
+main .food-items__bottom img {
+  width: 100%;
+  height: 100%;
+}
+main .food-items__bottom--lists {
+  position: relative;
+}
+main .food-items__bottom--lists > div {
+  width: 100%;
+  padding: 0 2rem 4rem;
+  opacity: 0.7;
+  border-radius: 0px 0px 20px 20px;
+  background-color: var(--theme);
+  position: absolute;
+  bottom: 0;
+}
+main .food-items__bottom--lists > div h5 {
+  margin-bottom: 0;
+}
+main .food-items__bottom--lists > div .mark {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+}
+main .food-items__bottom--lists > div .mark i {
+  font-size: 1rem;
+  margin-right: 0.5rem;
+}
+main .food-items__bottom--lists > div .bookNow {
+  text-align: center;
+  position: absolute;
+  right: 0;
+  bottom: 2rem;
+  width: 30%;
+  border-radius: 100px 0px 0px 100px;
+  padding: 0.5rem 2rem;
+  background-color: #fff;
+}
+main .food-items__bottom--lists > div .bookNow p {
+  margin: 0;
+  color: var(--theme);
+}
+main .food-items__bottom--see-more {
+  color: var(--theme);
+}
+main .food-items__bottom--see-more i {
+  font-size: 1rem;
+  padding: 1rem;
+  background-color: var(--theme);
+  border-radius: 100%;
+}
+main .booking {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  height: 90vh;
+  background-color: #FFEDDE;
+  display: flex;
+  align-items: center;
+}
+main .booking > img {
+  position: absolute;
+}
+main .booking > img:nth-child(1) {
+  z-index: 3;
+}
+main .booking > img:nth-child(2) {
+  right: 0;
+}
+main .booking__main {
+  position: relative;
+  z-index: 2;
+  padding: 0 0 4rem 20%;
+  width: 80%;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+main .booking__main .vector {
+  position: absolute;
+  z-index: -1;
+}
+main .booking__main .vector:nth-child(1) {
+  right: -4%;
+}
+main .booking__main .vector:nth-child(2) {
+  top: -18%;
+  right: -4%;
+}
+main .booking__main .vector:nth-child(3) {
+  bottom: -18%;
+  left: 34%;
+}
+main .booking__main h3 {
+  border-top: 0.8rem solid var(--theme);
+  display: inline-block;
+  font-size: 3rem;
+  font-weight: 500;
+}
+main .booking__main form {
+  width: 50%;
+  position: relative;
+  margin-bottom: 3rem;
+}
+main .booking__main form input {
+  width: 100%;
+  padding: 2rem 2.5rem;
+  border: none;
+  box-shadow: 2px 2px 30px 2px #FFF5EC;
+}
+main .booking__main form input::placeholder {
+  font-size: 16px;
+}
+main .booking__main form button {
+  position: absolute;
+  right: 0.5rem;
+  font-size: 2.5rem;
+  font-weight: 600;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: var(--theme);
+  border: none;
+  padding: 0.5rem 2rem;
+}
+main .booking__main--times {
+  width: 50%;
+  display: flex;
+  justify-content: space-around;
+}
+main .booking__main--times span {
+  font-size: 16px;
+}
+main .booking__main--times i {
+  color: var(--theme);
+}
+main .services__top {
+  padding-bottom: 5rem;
+  display: flex;
+  align-items: center;
+}
+main .services__top h3 {
+  width: 45%;
+}
+main .services__top p {
+  width: 55%;
+}
+main .services__bottom {
+  background-image: url(../img/VectorBG.png);
+  background-repeat: round;
+  display: grid;
+  grid-template: 1fr 1fr/auto auto;
+  align-items: center;
+  justify-items: center;
+  gap: 2rem;
+  row-gap: 0;
+}
+main .services__bottom svg {
+  fill: var(--theme);
+  width: 50%;
+  background-color: #FFEDDE;
+}
+main .services__bottom--items {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+main .services__bottom--items div {
+  width: 40%;
+}
+main .services__bottom--items div h5 {
+  margin: 0;
+  font-size: 2rem;
+}
+main .services__bottom--items:nth-child(1) {
+  height: 100%;
+}
+main .services__bottom--items:nth-child(1) svg {
+  width: 40%;
+  height: 100%;
+  padding: 4rem;
+}
+main .services__bottom--items:nth-child(2) {
+  grid-area: 2/1/3/2;
+  flex-direction: row-reverse;
+}
+main .services__bottom--items:nth-child(2) svg {
+  width: 40%;
+  height: 100%;
+  padding: 4rem;
+}
+main .services__bottom--items:nth-child(3) {
+  height: 100%;
+  grid-area: 1/2/3/3;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #FFEDDE;
+}
+main .services__bottom--items:nth-child(3) div {
+  width: 50%;
+  text-align: center;
+}
+main .services__bottom--items:nth-child(3) div p {
+  border-bottom: 2px solid var(--theme);
+}
+main .explore__top {
+  text-align: center;
+}
+main .explore__bottom {
+  display: grid;
+  grid-template: 1fr 1fr/1fr 1fr 1fr;
+  align-items: center;
+  justify-items: center;
+  gap: 2rem;
+}
+main .explore__bottom--items {
+  background-color: #fff;
+  box-shadow: 0px 4px 4px rgba(235, 241, 245, 0.5);
+  border-radius: 25px;
+}
+main .explore__bottom--items img {
+  width: 100%;
+}
+main .explore__bottom--items .intr {
+  padding: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+}
+main .explore__bottom--items .intr div {
+  width: 75%;
+}
+main .explore__bottom--items .intr div h5 {
+  margin: 0;
+  color: #2E266F;
+}
+main .explore__bottom--items .intr span {
+  font-size: 2rem;
+  color: var(--theme);
+  font-weight: 700;
+}
+main .download {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #FFEDDE;
+}
+main .download__top {
+  width: 50%;
+}
+main .download__top h3 {
+  border-left: 2rem solid var(--theme);
+}
+main .download__bottom {
+  position: relative;
+  width: 40%;
+}
+main .download__bottom img:nth-child(1) {
+  position: relative;
+  z-index: 10;
+}
+main .download__bottom img:nth-child(2) {
+  position: absolute;
+  top: 24rem;
+  left: -215px;
+  z-index: 1;
+}
+main .download__bottom img:nth-child(3) {
+  position: absolute;
+  top: 5rem;
+  left: -180px;
+  z-index: 0;
+}
+
+footer {
+  position: relative;
+  height: 80vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+footer img:first-child {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 10;
+}
+footer img:nth-child(2) {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+}
+footer .footer-main {
+  width: 30%;
+  text-align: center;
+  position: relative;
+  z-index: 20;
+}
+footer .footer-main h4 {
+  margin: 0;
+}
+footer .footer-main form {
+  margin: 0 auto;
+  width: 60%;
+  position: relative;
+}
+footer .footer-main form input {
+  width: 100%;
+  border: none;
+  box-shadow: 2px 2px 30px 2px #FFF5EC;
+  border-radius: 100px;
+  padding: 1rem;
+}
+footer .footer-main form button {
+  position: absolute;
+}
+footer .footer-info {
+  display: flex;
+  align-items: center;
+}
+
+/*# sourceMappingURL=style.css.map */

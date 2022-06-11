@@ -1,0 +1,39 @@
+@mixin dp-flex($location: center) {
+    @if $location == center {
+        display: flex;
+        align-items: center;
+    }
+
+    @if $location == normal {
+        display: flex;
+    }
+}
+
+@mixin dp-grid($row, $col) {
+    display: grid;
+    grid-template: $col / $row;
+    align-items: center;
+    justify-items: center;
+    gap: 2rem;
+}
+
+@mixin direction($location) {
+    position: absolute;
+
+    @if $location == center {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    @if $location == left {
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+    }
+
+    @if $location == middle {
+        top: 50%;
+        transform: translateY(-50%);
+    }
+}
