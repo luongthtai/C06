@@ -1,71 +1,10 @@
 @import "./mixins";
 @import "./variable";
+@import "./extend";
 
 
 * {
     box-sizing: border-box;
-}
-
-:root {
-    //Thay doi theme page
-    // Theme1: #35CD8C; -- xanh
-    // Theme2: #FE043C; -- do
-    --theme: #FE043C;
-}
-
-%theme-color {
-    color: var(--theme);
-}
-
-%heading-color {
-    color: $heading-color;
-}
-
-%padding-header {
-    padding: 0 8%;
-}
-
-%margin-section {
-    margin: 5rem 0;
-}
-
-%h3 {
-    padding-left: 2rem;
-    margin: 0;
-    font-size: 4rem;
-    font-weight: 500;
-    @extend %heading-color;
-}
-
-%h4 {
-    font-size: 3rem;
-    font-weight: 400;
-    @extend %heading-color;
-}
-
-%h5 {
-    font-size: 2rem;
-    font-weight: 500;
-    @extend %text;
-}
-
-%p {
-    font-size: 14px;
-    color: $p-color;
-    line-height: 2rem;
-}
-
-%p-food-items {
-    @extend %p;
-    color: $text_color;
-}
-
-%border-left {
-    border-left: 1.5rem solid var(--theme);
-}
-
-%text {
-    color: $text_color;
 }
 
 body {
@@ -78,7 +17,7 @@ body {
 header {
     width: 100%;
     height: 120vh;
-    background-image: linear-gradient(to right, $bg-color 70%, var(--theme) 30%);
+    background-image: linear-gradient(to right, $bg-color 75%, var(--theme) 25%);
 
     a {
         text-decoration: none;
@@ -91,10 +30,11 @@ header {
 
         .logo {
             @extend %theme-color;
-            width: 20%;
 
-            h1 {
+            p {
+                margin: 0;
                 font-size: 4rem;
+                font-weight: 700;
             }
         }
 
@@ -135,25 +75,37 @@ header {
                 }
             }
         }
+
+        .bar {
+            font-size: 3rem;
+            @extend %text;
+            display: none;
+
+        }
+
+        @media only screen and(max-width: 1195px) {
+            .bar {
+                display: inline-block;
+            }
+        }
     }
 
     .main-header {
         width: 60%;
         @extend %padding-header;
         padding-bottom: 8rem;
+        z-index: 10;
 
         h1 {
-            height: 8rem;
             display: inline-block;
             margin: 0;
-            font-size: 12rem;
+            @extend %h1;
             @extend %heading-color;
             opacity: 5%;
         }
 
         h2 {
-            font-size: 4rem;
-            @extend %heading-color;
+            @extend %h2;
             margin: 0 0 1rem;
         }
 
@@ -195,12 +147,55 @@ header {
         background-color: var(--theme);
         border-radius: 0px 100px 100px 0px;
         padding: .5rem 2.5rem;
+        position: absolute;
+        left: 0;
+        bottom: 10%;
     }
 
     .image-header {
-        display: none;
         position: absolute;
+        width: 100%;
+        height: 100%;
         top: 0;
+        left: 0;
+
+        img {
+            position: absolute;
+
+            &:nth-child(1) {
+                width: 46%;
+                top: 55%;
+                right: 25%;
+                transform: translate(45%, -50%);
+                z-index: 10;
+            }
+
+            &:nth-child(2) {
+                width: 30%;
+                right: 10%;
+                transform: translateY(-70%);
+                top: 50%;
+            }
+
+            &:nth-child(3) {
+                width: 22%;
+                right: 25%;
+                top: 50%;
+                transform: translateY(-100%);
+            }
+
+            &:nth-child(4) {
+                width: 22%;
+                right: 25%;
+                top: 52%;
+            }
+
+            &:nth-child(5) {
+                width: 10%;
+                bottom: 10%;
+                right: 5%;
+            }
+        }
     }
 }
 
@@ -212,6 +207,7 @@ main {
             padding-bottom: 5rem;
             @include dp-flex();
             @extend %padding-header;
+            margin-bottom: 5rem;
 
             h3 {
                 @extend %border-left;
@@ -228,14 +224,14 @@ main {
         &__bottom {
             @include dp-grid(1fr 1fr .8fr, auto);
 
-            img {
-                width: 100%;
-                height: 100%;
-            }
-
             &--lists {
                 position: relative;
                 @extend %text;
+
+                &>img {
+                    width: 100%;
+                    height: 100%;
+                }
 
                 &>div {
                     width: 100%;
@@ -272,7 +268,7 @@ main {
                         position: absolute;
                         right: 0;
                         bottom: 2rem;
-                        width: 30%;
+                        display: inline-block;
                         border-radius: 100px 0px 0px 100px;
                         padding: .5rem 2rem;
                         background-color: $text_color;
@@ -300,23 +296,35 @@ main {
     }
 
     .booking {
-        overflow: hidden;
         position: relative;
+        overflow: hidden;
         @extend %margin-section;
         width: 100%;
         height: 90vh;
         background-color: $bg-section;
         @include dp-flex;
 
-        &>img {
+        .booking-image {
             position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 10;
 
-            &:nth-child(1) {
-                z-index: 3;
-            }
+            &>img {
+                position: absolute;
 
-            &:nth-child(2) {
-                right: 0;
+                &:nth-child(1) {
+                    width: 35%;
+                    @include direction(left);
+                }
+
+                &:nth-child(2) {
+                    width: 20%;
+                    @include direction(right);
+
+                }
             }
         }
 
@@ -335,17 +343,20 @@ main {
                 z-index: -1;
 
                 &:nth-child(1) {
-                    right: -4%;
+                    right: 0;
+                    transform: translateX(120%);
                 }
 
                 &:nth-child(2) {
-                    top: -18%;
-                    right: -4%;
+                    top: 0;
+                    right: 0;
+                    transform: translate(19%, -120%);
                 }
 
                 &:nth-child(3) {
-                    bottom: -18%;
-                    left: 34%;
+                    bottom: 0;
+                    left: 30%;
+                    transform: translateY(120%);
                 }
             }
 
@@ -439,16 +450,6 @@ main {
                 fill: var(--theme);
                 width: 50%;
                 background-color: $bg-section;
-
-                // &:nth-child(1) {
-                //     padding: 2rem;
-                //     height: 100%;
-                // }
-
-                // &:nth-child(2) {
-                //     padding: 8rem 7rem;
-                //     height: 100%;
-                // }
             }
 
             &--items {
@@ -570,6 +571,7 @@ main {
     }
 
     .download {
+        width: 100%;
         @extend %margin-section;
         @extend %padding-header;
         @include dp-flex;
@@ -592,24 +594,28 @@ main {
         &__bottom {
             position: relative;
             width: 40%;
+            height: 100%;
 
             img {
                 &:nth-child(1) {
                     position: relative;
+                    width: 100%;
                     z-index: 10;
                 }
 
                 &:nth-child(2) {
                     position: absolute;
-                    top: 24rem;
-                    left: -215px;
+                    width: 60%;
+                    top: 30%;
+                    right: 75%;
                     z-index: 1;
                 }
 
                 &:nth-child(3) {
                     position: absolute;
-                    top: 5rem;
-                    left: -180px;
+                    width: 120%;
+                    top: 6%;
+                    right: 17%;
                     z-index: 0;
                 }
             }
@@ -619,6 +625,8 @@ main {
 
 footer {
     position: relative;
+    overflow: hidden;
+    padding: 3rem 0;
     height: 80vh;
     width: 100%;
     @include dp-flex;
@@ -628,12 +636,15 @@ footer {
     img {
         &:first-child {
             position: absolute;
+            width: 35%;
             bottom: 0;
+            transform: translateY(8%);
             left: 0;
             z-index: 10;
         }
 
         &:nth-child(2) {
+            width: 45%;
             @include direction(left);
         }
     }
@@ -654,8 +665,8 @@ footer {
         }
 
         form {
-            margin: 0 auto;
-            width: 60%;
+            margin: 2rem auto;
+            width: 85%;
             position: relative;
 
             input {
@@ -663,20 +674,349 @@ footer {
                 border: none;
                 box-shadow: 2px 2px 30px 2px $bg-color;
                 border-radius: 100px;
-                padding: 1rem;
+                padding: 2rem 3rem;
             }
 
             button {
-                position: absolute;
+                padding: 1.6rem;
+                background-color: var(--theme);
+                border-radius: 50%;
+                border: none;
+                @include direction(middle);
+                right: 2%;
+
+                i {
+                    @extend %text;
+                }
             }
+        }
+
+        &__prd {
+            padding: 2rem 0;
         }
 
         span {
             @extend %p;
+            margin: 0 1rem
         }
     }
 
     .footer-info {
+        position: absolute;
         @include dp-flex;
+        width: 20%;
+        justify-content: space-between;
+        bottom: 5%;
+        right: 10%;
+
+        &--logo {
+            width: 40%;
+            @include dp-flex;
+            justify-content: space-between;
+
+            i {
+                @extend %p;
+                font-size: 1rem;
+            }
+        }
+
+        &--items {
+            width: 40%;
+
+            i {
+                padding: 2px;
+                border-radius: 50%;
+                border: 1px solid #000;
+            }
+
+            span {
+                margin-left: 1rem;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 1195px) {
+    %padding-header {
+        padding: 0 1rem;
+    }
+
+    html {
+        font-size: $font-size;
+    }
+
+    header {
+        height: 100vh;
+
+        .hidden {
+            display: none !important;
+        }
+
+        .location {
+            bottom: 25%;
+        }
+
+        .image-header {
+            img {
+                &:nth-child(1) {
+                    top: 40%;
+                }
+
+                &:nth-child(2) {
+                    width: 26%;
+                    top: 36%;
+                }
+
+                &:nth-child(3) {
+                    width: 27%;
+                    top: 41%;
+                }
+
+                &:nth-child(4) {
+                    width: 27%;
+                    top: 34%;
+                }
+
+                &:nth-child(5) {
+                    bottom: 25%;
+                }
+            }
+        }
+    }
+
+    main {
+        .booking {
+
+            .booking-image {
+                img {
+                    &:nth-child(1) {
+                        width: 45%;
+                        left: -15%;
+                    }
+
+                    &:nth-child(2) {
+                        width: 15%;
+                    }
+
+                }
+            }
+
+            &__main {
+                width: 85%;
+
+                form {
+                    width: 90%;
+                }
+
+                &--times {
+                    width: 95%;
+                }
+
+                .vector {
+                    &:nth-child(3) {
+                        left: 0;
+                    }
+                }
+            }
+        }
+
+        .explore {
+            &__bottom {
+                @include dp-grid(1fr 1fr, auto)
+            }
+        }
+
+        .download {
+            &__bottom {
+                width: 100%;
+                text-align: center;
+
+                img {
+                    &:nth-child(1) {
+                        width: 70%;
+                    }
+
+                    &:nth-child(2) {
+                        width: 40%;
+                        right: 67%;
+                    }
+
+                    &:nth-child(3) {
+                        width: 100%;
+                        right: 0;
+                    }
+                }
+            }
+        }
+    }
+
+    footer {
+        height: auto;
+
+        img {
+            &:first-child {
+                width: 45%;
+                left: -10%;
+            }
+        }
+
+        .footer-main {
+            width: 50%;
+        }
+
+        .footer-info {
+            width: 30%;
+        }
+    }
+}
+
+@media only screen and (max-width: 554px) {
+    %h2 {
+        font-size: 3rem;
+    }
+
+    %h1 {
+        font-size: 8rem;
+    }
+
+    header {
+        .main-header {
+            width: 75%;
+
+            form {
+                position: absolute;
+                width: 85%;
+            }
+        }
+
+        .location {
+            top: 42%;
+            bottom: auto;
+        }
+
+        .image-header {
+            height: 50%;
+            top: 50%;
+
+            img {
+                &:nth-child(1) {
+                    width: 95%;
+                    transform: translate(0, 0);
+                    top: auto;
+                    right: auto;
+                }
+
+                &:nth-child(2) {
+                    width: 60%;
+                    top: -20%;
+                    transform: translate(0, 0);
+                }
+
+                &:nth-child(3) {
+                    left: 5%;
+                    width: 55%;
+                    top: 50%;
+                    transform: translateY(-100%);
+                }
+
+                &:nth-child(4) {
+                    left: 5%;
+                    width: 55%;
+                    top: 38%;
+                }
+
+                &:nth-child(5) {
+                    width: 20%;
+                    bottom: 5%;
+                    right: 3%;
+                }
+            }
+        }
+    }
+
+    main {
+        .food-items {
+            &__top {
+                flex-direction: column;
+
+                h3 {
+                    width: 100%;
+                }
+
+                p {
+                    width: 100%;
+                }
+            }
+
+            &__bottom {
+                grid-template: auto / 1fr;
+            }
+        }
+
+        .booking {
+            height: 50vh;
+        }
+
+        .services {
+            &__top {
+                flex-direction: column;
+
+                h3 {
+                    width: 100%;
+                }
+
+                p {
+                    width: 100%;
+                }
+            }
+
+            &__bottom {
+                grid-template: auto / 1fr;
+                gap: 20px;
+
+                &--items {
+                    &:nth-child(2) {
+                        grid-area: auto;
+                    }
+
+                    &:nth-child(3) {
+                        grid-area: auto;
+                        padding: 2rem;
+                    }
+                }
+            }
+        }
+
+        .explore {
+            &__bottom {
+                grid-template: auto/ 1fr;
+            }
+        }
+
+        .download {
+            flex-direction: column;
+
+            &__top {
+                width: 100%;
+            }
+
+            &__bottom {
+                width: 100%;
+            }
+        }
+    }
+
+    footer {
+        height: auto;
+
+
+        .footer-main {
+            width: 85%;
+        }
+
+        .footer-info {
+            position: initial;
+            width: 80%;
+        }
     }
 }

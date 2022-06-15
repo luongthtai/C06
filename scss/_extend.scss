@@ -1,0 +1,72 @@
+:root {
+    //Thay doi theme page
+    // Theme1: #35CD8C; -- xanh
+    // Theme2: #FE043C; -- do
+    --theme: #FE043C;
+}
+
+
+%theme-color {
+    color: var(--theme);
+}
+
+%heading-color {
+    color: $heading-color;
+}
+
+%padding-header {
+    padding: 2rem 8%;
+}
+
+%margin-section {
+    margin: 5rem 0;
+}
+
+%h1 {
+    font-size: 12rem;
+    font-weight: 900;
+}
+
+%h2 {
+    font-size: 4rem;
+    @extend %heading-color;
+}
+
+%h3 {
+    padding-left: 2rem;
+    margin: 0;
+    font-size: 4rem;
+    font-weight: 500;
+    @extend %heading-color;
+}
+
+%h4 {
+    font-size: 3rem;
+    font-weight: 400;
+    @extend %heading-color;
+}
+
+%h5 {
+    font-size: 2rem;
+    font-weight: 500;
+    @extend %text;
+}
+
+%p {
+    font-size: 14px;
+    color: $p-color;
+    line-height: 2rem;
+}
+
+%p-food-items {
+    @extend %p;
+    color: $text_color;
+}
+
+%border-left {
+    border-left: 1.5rem solid var(--theme);
+}
+
+%text {
+    color: $text_color;
+}

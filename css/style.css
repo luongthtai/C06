@@ -1,7 +1,3 @@
-* {
-  box-sizing: border-box;
-}
-
 :root {
   --theme: #FE043C;
 }
@@ -10,16 +6,25 @@ header .navbar .logo {
   color: var(--theme);
 }
 
-main .services__bottom--items div h5, main .booking__main--times p, main .booking__main--times span, main .booking__main form input::placeholder, main .booking__main h3, header .main-header form input::placeholder, header .main-header h2, header .main-header h1, header .navbar .hidden .user > a, header .navbar .hidden .menu__items, footer .footer-main h4, main .download__top h3, main .explore__top h3, main .services__top h3, main .food-items__top h3 {
+main .services__bottom--items div h5, main .booking__main--times p, main .booking__main--times span, main .booking__main form input::placeholder, main .booking__main h3, header .main-header form input::placeholder, header .main-header h1, header .navbar .hidden .user > a, header .navbar .hidden .menu__items, footer .footer-main h4, main .download__top h3, main .explore__top h3, main .services__top h3, main .food-items__top h3, header .main-header h2 {
   color: #2E266F;
 }
 
 main .download, main .explore, main .services__bottom, main .services__top, main .food-items__top, header .main-header, header .navbar {
-  padding: 0 8%;
+  padding: 2rem 8%;
 }
 
 main .download, main .explore, main .services, main .booking, main .food-items {
   margin: 5rem 0;
+}
+
+header .main-header h1 {
+  font-size: 12rem;
+  font-weight: 900;
+}
+
+header .main-header h2 {
+  font-size: 4rem;
 }
 
 main .download__top h3, main .explore__top h3, main .services__top h3, main .food-items__top h3 {
@@ -39,7 +44,7 @@ main .explore__bottom--items .intr div h5, main .food-items__bottom--lists > div
   font-weight: 500;
 }
 
-footer .footer-main span, footer .footer-main p, main .download__top p, main .explore__bottom--items .intr div p, main .explore__top p, main .services__bottom--items div p, main .services__top p, main .food-items__top p, main .food-items__bottom--lists > div p {
+footer .footer-info--logo i, footer .footer-main span, footer .footer-main p, main .download__top p, main .explore__bottom--items .intr div p, main .explore__top p, main .services__bottom--items div p, main .services__top p, main .food-items__top p, main .food-items__bottom--lists > div p {
   font-size: 14px;
   color: #707070;
   line-height: 2rem;
@@ -53,8 +58,12 @@ main .services__top h3, main .food-items__top h3 {
   border-left: 1.5rem solid var(--theme);
 }
 
-main .booking__main form button, main .food-items__bottom--see-more i, main .food-items__bottom--lists > div .mark, main .food-items__bottom--lists > div, main .food-items__bottom--lists, header .location, header .main-header form button, header .navbar .hidden .user span i, header .navbar .hidden .user span, main .explore__bottom--items .intr div h5, main .food-items__bottom--lists > div h5 {
+footer .footer-main form button i, main .booking__main form button, main .food-items__bottom--see-more i, main .food-items__bottom--lists > div .mark, main .food-items__bottom--lists > div, main .food-items__bottom--lists, header .location, header .main-header form button, header .navbar .bar, header .navbar .hidden .user span i, header .navbar .hidden .user span, main .explore__bottom--items .intr div h5, main .food-items__bottom--lists > div h5 {
   color: #fff;
+}
+
+* {
+  box-sizing: border-box;
 }
 
 body {
@@ -67,7 +76,7 @@ body {
 header {
   width: 100%;
   height: 120vh;
-  background-image: linear-gradient(to right, #FFF5EC 70%, var(--theme) 30%);
+  background-image: linear-gradient(to right, #FFF5EC 75%, var(--theme) 25%);
 }
 header a {
   text-decoration: none;
@@ -77,11 +86,10 @@ header .navbar {
   align-items: center;
   justify-content: space-between;
 }
-header .navbar .logo {
-  width: 20%;
-}
-header .navbar .logo h1 {
+header .navbar .logo p {
+  margin: 0;
   font-size: 4rem;
+  font-weight: 700;
 }
 header .navbar .hidden {
   width: 80%;
@@ -108,19 +116,26 @@ header .navbar .hidden .user span {
 header .navbar .hidden .user span i {
   padding-left: 0.5rem;
 }
+header .navbar .bar {
+  font-size: 3rem;
+  display: none;
+}
+@media only screen and (max-width: 1195px) {
+  header .navbar .bar {
+    display: inline-block;
+  }
+}
 header .main-header {
   width: 60%;
   padding-bottom: 8rem;
+  z-index: 10;
 }
 header .main-header h1 {
-  height: 8rem;
   display: inline-block;
   margin: 0;
-  font-size: 12rem;
   opacity: 5%;
 }
 header .main-header h2 {
-  font-size: 4rem;
   margin: 0 0 1rem;
 }
 header .main-header form {
@@ -153,17 +168,55 @@ header .location {
   background-color: var(--theme);
   border-radius: 0px 100px 100px 0px;
   padding: 0.5rem 2.5rem;
+  position: absolute;
+  left: 0;
+  bottom: 10%;
 }
 header .image-header {
-  display: none;
   position: absolute;
+  width: 100%;
+  height: 100%;
   top: 0;
+  left: 0;
+}
+header .image-header img {
+  position: absolute;
+}
+header .image-header img:nth-child(1) {
+  width: 46%;
+  top: 55%;
+  right: 25%;
+  transform: translate(45%, -50%);
+  z-index: 10;
+}
+header .image-header img:nth-child(2) {
+  width: 30%;
+  right: 10%;
+  transform: translateY(-70%);
+  top: 50%;
+}
+header .image-header img:nth-child(3) {
+  width: 22%;
+  right: 25%;
+  top: 50%;
+  transform: translateY(-100%);
+}
+header .image-header img:nth-child(4) {
+  width: 22%;
+  right: 25%;
+  top: 52%;
+}
+header .image-header img:nth-child(5) {
+  width: 10%;
+  bottom: 10%;
+  right: 5%;
 }
 
 main .food-items__top {
   padding-bottom: 5rem;
   display: flex;
   align-items: center;
+  margin-bottom: 5rem;
 }
 main .food-items__top h3 {
   width: 60%;
@@ -178,12 +231,12 @@ main .food-items__bottom {
   justify-items: center;
   gap: 2rem;
 }
-main .food-items__bottom img {
-  width: 100%;
-  height: 100%;
-}
 main .food-items__bottom--lists {
   position: relative;
+}
+main .food-items__bottom--lists > img {
+  width: 100%;
+  height: 100%;
 }
 main .food-items__bottom--lists > div {
   width: 100%;
@@ -211,7 +264,7 @@ main .food-items__bottom--lists > div .bookNow {
   position: absolute;
   right: 0;
   bottom: 2rem;
-  width: 30%;
+  display: inline-block;
   border-radius: 100px 0px 0px 100px;
   padding: 0.5rem 2rem;
   background-color: #fff;
@@ -230,22 +283,38 @@ main .food-items__bottom--see-more i {
   border-radius: 100%;
 }
 main .booking {
-  overflow: hidden;
   position: relative;
+  overflow: hidden;
   width: 100%;
   height: 90vh;
   background-color: #FFEDDE;
   display: flex;
   align-items: center;
 }
-main .booking > img {
+main .booking .booking-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+}
+main .booking .booking-image > img {
   position: absolute;
 }
-main .booking > img:nth-child(1) {
-  z-index: 3;
+main .booking .booking-image > img:nth-child(1) {
+  width: 35%;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
 }
-main .booking > img:nth-child(2) {
+main .booking .booking-image > img:nth-child(2) {
+  width: 20%;
+  position: absolute;
+  top: 50%;
   right: 0;
+  transform: translateY(-50%);
 }
 main .booking__main {
   position: relative;
@@ -262,15 +331,18 @@ main .booking__main .vector {
   z-index: -1;
 }
 main .booking__main .vector:nth-child(1) {
-  right: -4%;
+  right: 0;
+  transform: translateX(120%);
 }
 main .booking__main .vector:nth-child(2) {
-  top: -18%;
-  right: -4%;
+  top: 0;
+  right: 0;
+  transform: translate(19%, -120%);
 }
 main .booking__main .vector:nth-child(3) {
-  bottom: -18%;
-  left: 34%;
+  bottom: 0;
+  left: 30%;
+  transform: translateY(120%);
 }
 main .booking__main h3 {
   border-top: 0.8rem solid var(--theme);
@@ -422,6 +494,7 @@ main .explore__bottom--items .intr span {
   font-weight: 700;
 }
 main .download {
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -436,26 +509,32 @@ main .download__top h3 {
 main .download__bottom {
   position: relative;
   width: 40%;
+  height: 100%;
 }
 main .download__bottom img:nth-child(1) {
   position: relative;
+  width: 100%;
   z-index: 10;
 }
 main .download__bottom img:nth-child(2) {
   position: absolute;
-  top: 24rem;
-  left: -215px;
+  width: 60%;
+  top: 30%;
+  right: 75%;
   z-index: 1;
 }
 main .download__bottom img:nth-child(3) {
   position: absolute;
-  top: 5rem;
-  left: -180px;
+  width: 120%;
+  top: 6%;
+  right: 17%;
   z-index: 0;
 }
 
 footer {
   position: relative;
+  overflow: hidden;
+  padding: 3rem 0;
   height: 80vh;
   width: 100%;
   display: flex;
@@ -465,11 +544,14 @@ footer {
 }
 footer img:first-child {
   position: absolute;
+  width: 35%;
   bottom: 0;
+  transform: translateY(8%);
   left: 0;
   z-index: 10;
 }
 footer img:nth-child(2) {
+  width: 45%;
   position: absolute;
   top: 50%;
   left: 0;
@@ -485,8 +567,8 @@ footer .footer-main h4 {
   margin: 0;
 }
 footer .footer-main form {
-  margin: 0 auto;
-  width: 60%;
+  margin: 2rem auto;
+  width: 85%;
   position: relative;
 }
 footer .footer-main form input {
@@ -494,14 +576,257 @@ footer .footer-main form input {
   border: none;
   box-shadow: 2px 2px 30px 2px #FFF5EC;
   border-radius: 100px;
-  padding: 1rem;
+  padding: 2rem 3rem;
 }
 footer .footer-main form button {
+  padding: 1.6rem;
+  background-color: var(--theme);
+  border-radius: 50%;
+  border: none;
   position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 2%;
+}
+footer .footer-main__prd {
+  padding: 2rem 0;
+}
+footer .footer-main span {
+  margin: 0 1rem;
 }
 footer .footer-info {
+  position: absolute;
   display: flex;
   align-items: center;
+  width: 20%;
+  justify-content: space-between;
+  bottom: 5%;
+  right: 10%;
+}
+footer .footer-info--logo {
+  width: 40%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+footer .footer-info--logo i {
+  font-size: 1rem;
+}
+footer .footer-info--items {
+  width: 40%;
+}
+footer .footer-info--items i {
+  padding: 2px;
+  border-radius: 50%;
+  border: 1px solid #000;
+}
+footer .footer-info--items span {
+  margin-left: 1rem;
+}
+
+@media only screen and (max-width: 1195px) {
+  header .navbar, header .main-header, main .food-items__top, main .services__top, main .services__bottom, main .explore, main .download {
+    padding: 0 1rem;
+  }
+
+  html {
+    font-size: 12px;
+  }
+
+  header {
+    height: 100vh;
+  }
+  header .hidden {
+    display: none !important;
+  }
+  header .location {
+    bottom: 25%;
+  }
+  header .image-header img:nth-child(1) {
+    top: 40%;
+  }
+  header .image-header img:nth-child(2) {
+    width: 26%;
+    top: 36%;
+  }
+  header .image-header img:nth-child(3) {
+    width: 27%;
+    top: 41%;
+  }
+  header .image-header img:nth-child(4) {
+    width: 27%;
+    top: 34%;
+  }
+  header .image-header img:nth-child(5) {
+    bottom: 25%;
+  }
+
+  main .booking .booking-image img:nth-child(1) {
+    width: 45%;
+    left: -15%;
+  }
+  main .booking .booking-image img:nth-child(2) {
+    width: 15%;
+  }
+  main .booking__main {
+    width: 85%;
+  }
+  main .booking__main form {
+    width: 90%;
+  }
+  main .booking__main--times {
+    width: 95%;
+  }
+  main .booking__main .vector:nth-child(3) {
+    left: 0;
+  }
+  main .explore__bottom {
+    display: grid;
+    grid-template: auto/1fr 1fr;
+    align-items: center;
+    justify-items: center;
+    gap: 2rem;
+  }
+  main .download__bottom {
+    width: 100%;
+    text-align: center;
+  }
+  main .download__bottom img:nth-child(1) {
+    width: 70%;
+  }
+  main .download__bottom img:nth-child(2) {
+    width: 40%;
+    right: 67%;
+  }
+  main .download__bottom img:nth-child(3) {
+    width: 100%;
+    right: 0;
+  }
+
+  footer {
+    height: auto;
+  }
+  footer img:first-child {
+    width: 45%;
+    left: -10%;
+  }
+  footer .footer-main {
+    width: 50%;
+  }
+  footer .footer-info {
+    width: 30%;
+  }
+}
+@media only screen and (max-width: 554px) {
+  header .main-header h2 {
+    font-size: 3rem;
+  }
+
+  header .main-header h1 {
+    font-size: 8rem;
+  }
+
+  header .main-header {
+    width: 75%;
+  }
+  header .main-header form {
+    position: absolute;
+    width: 85%;
+  }
+  header .location {
+    top: 42%;
+    bottom: auto;
+  }
+  header .image-header {
+    height: 50%;
+    top: 50%;
+  }
+  header .image-header img:nth-child(1) {
+    width: 95%;
+    transform: translate(0, 0);
+    top: auto;
+    right: auto;
+  }
+  header .image-header img:nth-child(2) {
+    width: 60%;
+    top: -20%;
+    transform: translate(0, 0);
+  }
+  header .image-header img:nth-child(3) {
+    left: 5%;
+    width: 55%;
+    top: 50%;
+    transform: translateY(-100%);
+  }
+  header .image-header img:nth-child(4) {
+    left: 5%;
+    width: 55%;
+    top: 38%;
+  }
+  header .image-header img:nth-child(5) {
+    width: 20%;
+    bottom: 5%;
+    right: 3%;
+  }
+
+  main .food-items__top {
+    flex-direction: column;
+  }
+  main .food-items__top h3 {
+    width: 100%;
+  }
+  main .food-items__top p {
+    width: 100%;
+  }
+  main .food-items__bottom {
+    grid-template: auto/1fr;
+  }
+  main .booking {
+    height: 50vh;
+  }
+  main .services__top {
+    flex-direction: column;
+  }
+  main .services__top h3 {
+    width: 100%;
+  }
+  main .services__top p {
+    width: 100%;
+  }
+  main .services__bottom {
+    grid-template: auto/1fr;
+    gap: 20px;
+  }
+  main .services__bottom--items:nth-child(2) {
+    grid-area: auto;
+  }
+  main .services__bottom--items:nth-child(3) {
+    grid-area: auto;
+    padding: 2rem;
+  }
+  main .explore__bottom {
+    grid-template: auto/1fr;
+  }
+  main .download {
+    flex-direction: column;
+  }
+  main .download__top {
+    width: 100%;
+  }
+  main .download__bottom {
+    width: 100%;
+  }
+
+  footer {
+    height: auto;
+  }
+  footer .footer-main {
+    width: 85%;
+  }
+  footer .footer-info {
+    position: initial;
+    width: 80%;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

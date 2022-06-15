@@ -36,4 +36,10 @@
         top: 50%;
         transform: translateY(-50%);
     }
+
+    @if $location == right {
+        top: 50%;
+        right: 0;
+        transform: translateY(-50%);
+    }
 }
