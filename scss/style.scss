@@ -236,6 +236,7 @@ main {
                 &>div {
                     width: 100%;
                     @extend %text;
+                    margin-bottom: 4px;
                     padding: 0 2rem 4rem;
                     opacity: .7;
                     border-radius: 0px 0px 20px 20px;
@@ -287,7 +288,7 @@ main {
                 i {
                     @extend %text;
                     font-size: 1rem;
-                    padding: 1rem;
+                    padding: 1rem 1.2rem;
                     background-color: var(--theme);
                     border-radius: 100%;
                 }
@@ -675,6 +676,12 @@ footer {
                 box-shadow: 2px 2px 30px 2px $bg-color;
                 border-radius: 100px;
                 padding: 2rem 3rem;
+                font-size: 1.5rem;
+
+                &::placeholder {
+                    font-family: $font-family;
+                    font-size: 1.5rem;
+                }
             }
 
             button {
@@ -971,6 +978,7 @@ footer {
             }
 
             &__bottom {
+                background-image: none;
                 grid-template: auto / 1fr;
                 gap: 20px;
 
